@@ -1,0 +1,8 @@
+dependencies {
+	implementation project(':domain-user')
+	implementation project(':domain-search')
+	implementation project(':domain-checkout')
+	implementation project(':infrastructure')
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework:spring-tx'
+}
