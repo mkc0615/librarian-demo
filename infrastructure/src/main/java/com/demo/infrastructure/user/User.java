@@ -33,4 +33,8 @@ class UserEntity {
     public User toDomainModel() {
         return User.create(id, name, password);
     }
+
+    public UserEntity fromDomainModel(User user) {
+        return new UserEntity(user);
+    }
 }

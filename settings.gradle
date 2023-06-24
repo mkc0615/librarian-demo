@@ -5,6 +5,6 @@ include 'application'
 include 'infrastructure'
 include 'domain-core'
 include 'domain-user'
+include 'domain-book'
 include 'domain-checkout'
 include 'domain-search'
-

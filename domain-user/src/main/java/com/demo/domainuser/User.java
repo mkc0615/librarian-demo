@@ -1,10 +1,8 @@
 package com.demo.domainuser;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 public class User {
-
     private String id;
     private String name;
     private String password;
@@ -19,6 +17,14 @@ public class User {
     }
 
     public static User create(String id, String name, String password){
+        return new User(id, name, password);
+    }
+
+    public User searched() {
+        return new User(id, name, password);
+    }
+
+    private User copy(String id, String name, String password){
         return new User(id, name, password);
     }
 

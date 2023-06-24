@@ -1,8 +1,7 @@
 package com.demo.domaincore.model;
 
 public enum BookStatus {
-    /** this enum may not belong here **/
-    PRESENT,
+    AVAILABLE,
     CHECKED_OUT,
     UNAVAILABLE
 }
