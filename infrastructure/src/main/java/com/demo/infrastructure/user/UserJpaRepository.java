@@ -28,8 +28,8 @@ public class UserJpaRepository implements UserRepository {
     @Override
     public User save(User user) {
         return userRepository.save(
-                new UserEntity()
-                        .fromDomainModel(user)
+            new UserEntity()
+                    .fromDomainModel(user)
         ).toDomainModel();
     }
 }
