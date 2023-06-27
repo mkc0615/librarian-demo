@@ -1,11 +1,6 @@
-bootJar {
-	archiveFileName = "library-demo-api.jar"
-	enabled = true
-}
+bootJar.enabled = true
 
-jar {
-	enabled = false
-}
+jar.enabled = false
 
 dependencies {
 	implementation project(':application')
@@ -15,4 +10,8 @@ dependencies {
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	implementation 'org.aspectj:aspectjweaver'
+}
+
+test {
+	useJUnitPlatform()
 }

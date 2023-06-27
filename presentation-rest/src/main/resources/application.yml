@@ -3,11 +3,7 @@ spring:
     name: library-demo
   profiles:
     active: local
-    include:
-      - app
-      - user
-      - book
-      - infra
+
   mvc:
     path-match:
       matching-strategy: ant_path_matcher
