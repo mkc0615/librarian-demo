@@ -1,7 +1,11 @@
 package com.demo.application.user;
 
 import com.demo.domainuser.UserService;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
+@Transactional
 public class UserApplicationService {
 
     private final UserService userService;

@@ -1,5 +1,6 @@
 package com.demo.application.book.support;
 
+import com.demo.domainbook.BookProvider;
 import com.demo.domainbook.BookRepository;
 import com.demo.domainbook.BookService;
 import org.springframework.context.annotation.Bean;
@@ -10,5 +11,10 @@ public class BookDomainServiceLoader {
     @Bean
     public BookService bookService(BookRepository bookRepository) {
         return new BookService(bookRepository);
+    }
+
+    @Bean
+    public BookProvider bookProvider(BookRepository bookRepository) {
+        return new BookProvider(bookRepository);
     }
 }

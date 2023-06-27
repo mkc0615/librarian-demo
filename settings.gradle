@@ -1,4 +1,4 @@
-rootProject.name = 'library'
+rootProject.name = "library"
 include 'presentation-rest'
 include 'presentation-gql'
 include 'application'

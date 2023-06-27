@@ -1,31 +1,40 @@
 package com.demo.application.book;
 
-import com.demo.domainbook.Book;
+import com.demo.application.book.model.BookModel;
 import com.demo.domainbook.BookProvider;
+import com.demo.domainbook.BookRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Service
+@Transactional(readOnly = true)
 public class BookApplicationProvider {
 
     private final BookProvider bookProvider;
 
-    public BookApplicationProvider(BookProvider bookProvider) {
-        this.bookProvider = bookProvider;
+    BookApplicationProvider(BookRepository bookRepository) {
+        this.bookProvider = new BookProvider(bookRepository);
     }
 
-    public Book getBookByTitle(String title) {
-        return bookProvider.findBookByTitle(title);
+    public BookModel getBookByTitle(String title) {
+        return BookModel.from(bookProvider.findBookByTitle(title));
     }
 
-    public Book getBookByAuthor(String author) {
-        return bookProvider.findBookByAuthor(author);
+    public BookModel getBookByAuthor(String author) {
+        return BookModel.from(bookProvider.findBookByAuthor(author));
     }
 
-    public List<Book> getBooksByKeyword(String keyword) {
-        return bookProvider.findBookByKeyword(keyword);
+    public List<BookModel> getBooksByKeyword(String keyword) {
+        return bookProvider.findBookByKeyword(keyword)
+                .stream()
+                .map( BookModel::from)
+                .collect(Collectors.toList());
     }
 
-    public Book getBook(String title, String author){
-        return bookProvider.findBook(title, author);
+    public BookModel getBook(String title, String author){
+        return BookModel.from(bookProvider.findBook(title, author));
     }
 }
