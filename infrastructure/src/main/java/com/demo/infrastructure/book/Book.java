@@ -2,9 +2,7 @@ package com.demo.infrastructure.book;
 
 import com.demo.domainbook.Book;
 import com.demo.domaincore.model.BookStatus;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -13,17 +11,22 @@ import java.time.LocalDateTime;
     name = "book"
 )
 class BookEntity {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String title;
+    @Column
     private String author;
     @Convert(converter = BookStatusConverter.class)
+    @Column
     private BookStatus status;
+    @Column
     private LocalDateTime registeredAt;
 
     public BookEntity(){ }
 
     public BookEntity(Book book) {
-        this.id = book.getId();
         this.title = book.getTitle();
         this.author = book.getAuthor();
         this.status = BookStatus.AVAILABLE;
@@ -31,7 +34,7 @@ class BookEntity {
     }
 
     public Book toDomainModel() {
-        return Book.create(id, title, author);
+        return Book.create(title, author);
     }
 
     public BookEntity fromDomainModel(Book book) {

@@ -1,8 +1,7 @@
 package com.demo.infrastructure.user;
 
 import com.demo.domainuser.User;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
 import java.time.LocalDateTime;
@@ -12,11 +11,18 @@ import java.time.LocalDateTime;
     name = "user"
 )
 class UserEntity {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String name;
+    @Column
     private String password;
+    @Column
     private LocalDateTime createdAt;
+    @Column
     private LocalDateTime updatedAt;
+    @Column
     private LocalDateTime deletedAt;
 
     public UserEntity() { }
@@ -31,7 +37,7 @@ class UserEntity {
     }
 
     public User toDomainModel() {
-        return User.create(id, name, password);
+        return User.create(name, password);
     }
 
     public UserEntity fromDomainModel(User user) {

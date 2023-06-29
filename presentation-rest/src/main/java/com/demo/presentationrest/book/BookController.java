@@ -16,21 +16,22 @@ public class BookController {
     public BookController(BookApplicationProvider bookApplicationProvider) {
         this.bookApplicationProvider = bookApplicationProvider;
     }
-    @GetMapping("{title}")
+
+    @GetMapping("/{title}")
     public BookModel getBookByTitle(
         @PathVariable String title
     ) {
         return bookApplicationProvider.getBookByTitle(title);
     }
 
-    @GetMapping("{author}")
+    @GetMapping("/{author}")
     public BookModel getBookByAuthor(
         @PathVariable String author
     ) {
         return bookApplicationProvider.getBookByAuthor(author);
     }
 
-    @GetMapping("{keyword}")
+    @GetMapping("/{keyword}")
     public List<BookModel> getBooksByKeyword(
         @PathVariable String keyword
     ){

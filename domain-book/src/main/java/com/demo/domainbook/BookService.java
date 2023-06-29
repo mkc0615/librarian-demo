@@ -13,8 +13,7 @@ public class BookService {
     public void register(String title, String author) {
         Book book = bookRepository.findBook(title, author);
         if(book == null) {
-            String id = UUIDGenerator.generate();
-            book = Book.create(id, title, author);
+            book = Book.create(title, author);
         }
         bookRepository.save(book);
     }

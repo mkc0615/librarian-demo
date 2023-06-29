@@ -3,32 +3,31 @@ package com.demo.domainuser;
 import java.time.LocalDateTime;
 
 public class User {
-    private String id;
+    private Long id;
     private String name;
     private String password;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
 
-    private User(String id, String name, String password) {
-        this.id = id;
+    private User(String name, String password) {
         this.name = name;
         this.password = password;
     }
 
-    public static User create(String id, String name, String password){
-        return new User(id, name, password);
+    public static User create(String name, String password){
+        return new User(name, password);
     }
 
     public User searched() {
-        return new User(id, name, password);
+        return new User(name, password);
     }
 
-    private User copy(String id, String name, String password){
-        return new User(id, name, password);
+    private User copy(String name, String password){
+        return new User(name, password);
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
