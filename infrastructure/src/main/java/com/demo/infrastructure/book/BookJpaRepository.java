@@ -30,11 +30,6 @@ public class BookJpaRepository implements BookRepository {
         return bookRepository.findBookByAuthor(author);
     }
 
-//    @Override
-//    public List<Book> findBooksByKeyword(String keyword) {
-//        return bookRepository.findBooksByKeyword(keyword);
-//    }
-
     @Override
     public Book save(Book book) {
         return bookRepository.save(
