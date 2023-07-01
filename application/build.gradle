@@ -1,8 +1,8 @@
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework:spring-tx'
 	implementation project(':domain-core')
 	implementation project(':domain-user')
 	implementation project(':domain-book')
 	implementation project(':infrastructure')
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework:spring-tx'
 }

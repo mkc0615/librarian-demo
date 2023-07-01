@@ -13,7 +13,7 @@ jar {
 }
 
 allprojects {
-    group = 'com.demo'
+    group = 'com.demo.library'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '17'
 

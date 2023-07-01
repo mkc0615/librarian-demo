@@ -1,6 +1,5 @@
 rootProject.name = "library"
 include 'presentation-rest'
-include 'presentation-gql'
 include 'application'
 include 'infrastructure'
 include 'domain-core'

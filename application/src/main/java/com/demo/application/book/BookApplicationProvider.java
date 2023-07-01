@@ -2,7 +2,6 @@ package com.demo.application.book;
 
 import com.demo.application.book.model.BookModel;
 import com.demo.domainbook.BookProvider;
-import com.demo.domainbook.BookRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,8 +14,8 @@ public class BookApplicationProvider {
 
     private final BookProvider bookProvider;
 
-    BookApplicationProvider(BookRepository bookRepository) {
-        this.bookProvider = new BookProvider(bookRepository);
+    public BookApplicationProvider(BookProvider bookProvider) {
+        this.bookProvider = bookProvider;
     }
 
     public BookModel getBookByTitle(String title) {
@@ -27,12 +26,12 @@ public class BookApplicationProvider {
         return BookModel.from(bookProvider.findBookByAuthor(author));
     }
 
-    public List<BookModel> getBooksByKeyword(String keyword) {
-        return bookProvider.findBookByKeyword(keyword)
-                .stream()
-                .map( BookModel::from)
-                .collect(Collectors.toList());
-    }
+//    public List<BookModel> getBooksByKeyword(String keyword) {
+//        return bookProvider.findBookByKeyword(keyword)
+//                .stream()
+//                .map( BookModel::from)
+//                .collect(Collectors.toList());
+//    }
 
     public BookModel getBook(String title, String author){
         return BookModel.from(bookProvider.findBook(title, author));

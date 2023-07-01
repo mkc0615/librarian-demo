@@ -1,13 +1,11 @@
-package com.demo.presentationgql;
+package com.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PresentationGqlApplication {
-
+public class PresentationRestApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(PresentationGqlApplication.class, args);
+		SpringApplication.run(PresentationRestApplication.class, args);
 	}
-
 }

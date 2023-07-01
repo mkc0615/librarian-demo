@@ -8,9 +8,9 @@ public class UserProvider {
         this.userRepository = userRepository;
     }
     public User findUser(String name, String password) {
-        return userRepository.findUser(name, password);
+        return userRepository.findUserByNameAndPassword(name, password);
     }
     public List<User> findUsers(){
-        return userRepository.findUsers();
+        return userRepository.findAll();
     }
 }

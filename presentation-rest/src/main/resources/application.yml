@@ -1,9 +1,10 @@
 spring:
   application:
-    name: library-demo
+    name: library
   profiles:
     active: local
     include:
+      - app
       - user
       - book
       - infra
@@ -16,5 +17,3 @@ server:
   servlet:
     encoding:
       charset: UTF-8
-      enabled: true
-      force: true

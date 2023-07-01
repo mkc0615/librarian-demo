@@ -5,6 +5,7 @@ import com.demo.domainuser.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class UserJpaRepository implements UserRepository {
@@ -16,13 +17,16 @@ public class UserJpaRepository implements UserRepository {
     }
 
     @Override
-    public User findUser(String name, String password) {
-        return userRepository.findUser(name, password);
+    public User findUserByNameAndPassword(String name, String password) {
+        return userRepository.findUserByNameAndPassword(name, password).toDomainModel();
     }
 
     @Override
-    public List<User> findUsers() {
-        return userRepository.findUsers();
+    public List<User> findAll() {
+        return userRepository.findAll()
+                .stream()
+                .map(UserEntity::toDomainModel)
+                .collect(Collectors.toList());
     }
 
     @Override

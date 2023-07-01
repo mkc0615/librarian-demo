@@ -17,7 +17,7 @@ public class BookJpaRepository implements BookRepository {
 
     @Override
     public Book findBook(String title, String author) {
-        return bookRepository.findBook(title, author);
+        return bookRepository.findBookByTitleAndAuthor(title, author);
     }
 
     @Override
@@ -30,10 +30,10 @@ public class BookJpaRepository implements BookRepository {
         return bookRepository.findBookByAuthor(author);
     }
 
-    @Override
-    public List<Book> findBooksByKeyword(String keyword) {
-        return bookRepository.findBooksByKeyword(keyword);
-    }
+//    @Override
+//    public List<Book> findBooksByKeyword(String keyword) {
+//        return bookRepository.findBooksByKeyword(keyword);
+//    }
 
     @Override
     public Book save(Book book) {
