@@ -1,19 +1,15 @@
-package com.demo.presentationrest.book;
+package com.demo.presentationrest.book.model;
+
+import jakarta.validation.constraints.NotNull;
 
 public class BookParam {
+    @NotNull
     private String title;
+    @NotNull
     private String author;
 
     public BookParam(String title, String author) {
         this.title = title;
-        this.author = author;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setAuthor(String author) {
         this.author = author;
     }
 

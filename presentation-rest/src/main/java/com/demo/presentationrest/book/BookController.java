@@ -3,10 +3,8 @@ package com.demo.presentationrest.book;
 import com.demo.application.book.BookApplicationProvider;
 import com.demo.application.book.BookApplicationService;
 import com.demo.application.book.model.BookModel;
-import org.springframework.http.HttpStatus;
+import com.demo.presentationrest.book.model.BookParam;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/book")
