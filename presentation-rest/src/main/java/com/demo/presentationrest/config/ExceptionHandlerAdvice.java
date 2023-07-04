@@ -1,6 +1,7 @@
 package com.demo.presentationrest.config;
 
 import com.demo.presentationrest.model.CommonErrorCode;
+import com.demo.presentationrest.model.ErrorResponse;
 import com.demo.presentationrest.model.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,7 @@ public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Response.Fail methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException exception) {
+    public ErrorResponse.Fail methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException exception) {
         logger.error(exception.getMessage());
 
         List<String> errors = exception.getBindingResult().getFieldErrors()
@@ -29,7 +30,7 @@ public class ExceptionHandlerAdvice {
                 .map(FieldError::getDefaultMessage)
                 .collect(Collectors.toList());
 
-        return Response.Fail.create(
+        return ErrorResponse.Fail.create(
                 CommonErrorCode.INVALID_REQUEST.getCode(),
                 exception.getClass().getSimpleName(),
                 CommonErrorCode.INVALID_REQUEST.getMessage()
