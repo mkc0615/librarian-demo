@@ -10,20 +10,24 @@ import java.util.stream.Collectors;
 @Repository
 public class UserJpaRepository implements UserRepository {
 
-    private final IUserJpaRepository userRepository;
+    private final IUserJpaRepository repository;
 
-    public UserJpaRepository(IUserJpaRepository userRepository){
-        this.userRepository = userRepository;
+    public UserJpaRepository(IUserJpaRepository repository){
+        this.repository = repository;
     }
 
     @Override
     public User findUserByNameAndPassword(String name, String password) {
-        return userRepository.findUserByNameAndPassword(name, password).toDomainModel();
+        UserEntity result = repository.findUserByNameAndPassword(name, password);
+        if (result != null) {
+            return result.toDomainModel();
+        }
+        return null;
     }
 
     @Override
     public List<User> findAll() {
-        return userRepository.findAll()
+        return repository.findAll()
                 .stream()
                 .map(UserEntity::toDomainModel)
                 .collect(Collectors.toList());
@@ -31,7 +35,7 @@ public class UserJpaRepository implements UserRepository {
 
     @Override
     public User save(User user) {
-        return userRepository.save(
+        return repository.save(
             new UserEntity()
                     .fromDomainModel(user)
         ).toDomainModel();

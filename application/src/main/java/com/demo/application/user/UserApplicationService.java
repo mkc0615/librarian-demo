@@ -14,7 +14,7 @@ public class UserApplicationService {
         this.userService = userService;
     }
 
-    public void registerUser(String name, String password) {
-        userService.register(name, password);
+    public void registerUser(String name, String password, String phoneNumber, String address, String zipCode) {
+        userService.register(name, password, phoneNumber, address, zipCode);
     }
 }

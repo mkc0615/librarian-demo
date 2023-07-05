@@ -24,12 +24,6 @@ public class ExceptionHandlerAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse.Fail methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException exception) {
         logger.error(exception.getMessage());
-
-        List<String> errors = exception.getBindingResult().getFieldErrors()
-                .stream()
-                .map(FieldError::getDefaultMessage)
-                .collect(Collectors.toList());
-
         return ErrorResponse.Fail.create(
                 CommonErrorCode.INVALID_REQUEST.getCode(),
                 exception.getClass().getSimpleName(),

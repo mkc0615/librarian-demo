@@ -19,6 +19,12 @@ class UserEntity {
     @Column
     private String password;
     @Column
+    private String phoneNumber;
+    @Column
+    private String address;
+    @Column
+    private String zipCode;
+    @Column
     private LocalDateTime createdAt;
     @Column
     private LocalDateTime updatedAt;
@@ -31,13 +37,16 @@ class UserEntity {
         this.id = user.getId();
         this.name = user.getName();
         this.password = user.getPassword();
+        this.phoneNumber = user.getPhoneNumber();
+        this.address = user.getAddress();
+        this.zipCode = user.getZipCode();
         this.createdAt = LocalDateTime.now();
         this.updatedAt = null;
         this.deletedAt = null;
     }
 
     public User toDomainModel() {
-        return User.create(name, password);
+        return User.create(name, password, phoneNumber, address, zipCode);
     }
 
     public UserEntity fromDomainModel(User user) {
