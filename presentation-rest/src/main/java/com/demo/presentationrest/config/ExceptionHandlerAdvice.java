@@ -1,19 +1,14 @@
 package com.demo.presentationrest.config;
 
-import com.demo.presentationrest.model.CommonErrorCode;
-import com.demo.presentationrest.model.ErrorResponse;
-import com.demo.presentationrest.model.Response;
+import com.demo.presentationrest.response.CommonErrorCode;
+import com.demo.presentationrest.response.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestControllerAdvice(basePackages = "com.demo.library.presentation")
 public class ExceptionHandlerAdvice {

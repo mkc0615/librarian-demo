@@ -4,5 +4,6 @@ dependencies {
 	implementation project(':domain-core')
 	implementation project(':domain-user')
 	implementation project(':domain-book')
+	implementation project(':domain-checkout')
 	implementation project(':infrastructure')
 }

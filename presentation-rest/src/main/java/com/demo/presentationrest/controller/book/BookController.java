@@ -1,9 +1,9 @@
-package com.demo.presentationrest.book;
+package com.demo.presentationrest.controller.book;
 
 import com.demo.application.book.BookApplicationProvider;
 import com.demo.application.book.BookApplicationService;
 import com.demo.application.book.model.BookModel;
-import com.demo.presentationrest.book.model.BookParam;
+import com.demo.presentationrest.controller.book.model.BookParam;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,19 +31,10 @@ public class BookController {
         return bookApplicationProvider.getBookByAuthor(author);
     }
 
-//    @GetMapping("/keyword/{keyword}")
-//    public List<BookModel> getBooksByKeyword(
-//        @PathVariable String keyword
-//    ){
-//        return bookApplicationProvider.getBooksByKeyword(keyword);
-//    }
-
     @PostMapping
     public void register(
         @RequestBody BookParam bookParam
     ) {
-        System.out.println("check title -> "+bookParam.getTitle());
-        System.out.println("check author -> "+bookParam.getAuthor());
         bookApplicationService.registerBook(bookParam.getTitle(), bookParam.getAuthor());
     }
 }

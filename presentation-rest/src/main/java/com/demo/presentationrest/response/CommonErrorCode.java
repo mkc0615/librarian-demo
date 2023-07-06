@@ -1,4 +1,4 @@
-package com.demo.presentationrest.model;
+package com.demo.presentationrest.response;
 
 public enum CommonErrorCode implements ErrorCode {
     INVALID_JSON("E0001", "잘못된 요청입니다."),

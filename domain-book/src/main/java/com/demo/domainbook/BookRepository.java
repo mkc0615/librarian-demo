@@ -3,6 +3,7 @@ package com.demo.domainbook;
 import java.util.List;
 
 public interface BookRepository {
+    Book findById(Long id);
     Book findBook(String title, String author);
     Book findBookByTitle(String title);
     Book findBookByAuthor(String author);

@@ -17,12 +17,8 @@ public class UserJpaRepository implements UserRepository {
     }
 
     @Override
-    public User findUserByNameAndPassword(String name, String password) {
-        UserEntity result = repository.findUserByNameAndPassword(name, password);
-        if (result != null) {
-            return result.toDomainModel();
-        }
-        return null;
+    public User findById(Long userId) {
+        return repository.findById(userId);
     }
 
     @Override
@@ -31,6 +27,15 @@ public class UserJpaRepository implements UserRepository {
                 .stream()
                 .map(UserEntity::toDomainModel)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public User findUserByNameAndPassword(String name, String password) {
+        UserEntity result = repository.findUserByNameAndPassword(name, password);
+        if (result != null) {
+            return result.toDomainModel();
+        }
+        return null;
     }
 
     @Override

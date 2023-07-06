@@ -1,6 +1,4 @@
-package com.demo.presentationrest.model;
-
-import java.util.List;
+package com.demo.presentationrest.response;
 
 public class Response {
     public static class Success<T> {

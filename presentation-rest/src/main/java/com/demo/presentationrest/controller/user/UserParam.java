@@ -1,4 +1,4 @@
-package com.demo.presentationrest.user;
+package com.demo.presentationrest.controller.user;
 
 import jakarta.validation.constraints.NotNull;
 

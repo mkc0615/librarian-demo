@@ -1,4 +1,4 @@
-package com.demo.presentationrest.user;
+package com.demo.presentationrest.controller.user;
 
 import com.demo.application.user.UserApplicationProvider;
 import com.demo.application.user.UserApplicationService;

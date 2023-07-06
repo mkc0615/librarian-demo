@@ -1,4 +1,4 @@
-package com.demo.presentationrest.book.model;
+package com.demo.presentationrest.controller.book.model;
 
 import jakarta.validation.constraints.NotNull;
 

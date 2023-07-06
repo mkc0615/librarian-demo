@@ -37,4 +37,9 @@ public class BookJpaRepository implements BookRepository {
                     .fromDomainModel(book)
         ).toDomainModel();
     }
+
+    @Override
+    public Book findById(Long userId) {
+        return bookRepository.findById(userId);
+    }
 }
