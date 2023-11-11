@@ -21,8 +21,8 @@ public class UserController {
 
     @GetMapping("{name}")
     public UserModel getUser(
-            @PathVariable String name,
-            @ModelAttribute String password
+        @PathVariable String name,
+        @ModelAttribute String password
     ) {
         return userApplicationProvider.getUser(name, password);
     }
