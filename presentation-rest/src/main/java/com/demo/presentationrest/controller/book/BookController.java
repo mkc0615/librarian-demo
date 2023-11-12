@@ -6,8 +6,10 @@ import com.demo.application.book.model.BookModel;
 import com.demo.presentationrest.controller.book.model.BookParam;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/api/v1/book")
 public class BookController {
     private final BookApplicationProvider bookApplicationProvider;
     private final BookApplicationService bookApplicationService;
@@ -15,6 +17,11 @@ public class BookController {
     public BookController(BookApplicationProvider bookApplicationProvider, BookApplicationService bookApplicationService) {
         this.bookApplicationProvider = bookApplicationProvider;
         this.bookApplicationService = bookApplicationService;
+    }
+
+    @GetMapping
+    public List<BookModel> findAllBooks() {
+        return bookApplicationProvider.getAllBooks();
     }
 
     @GetMapping("/title/{title}")

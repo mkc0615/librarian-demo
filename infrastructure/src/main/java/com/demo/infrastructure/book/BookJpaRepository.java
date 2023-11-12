@@ -5,6 +5,7 @@ import com.demo.domainbook.BookRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class BookJpaRepository implements BookRepository {
@@ -13,6 +14,11 @@ public class BookJpaRepository implements BookRepository {
 
     public BookJpaRepository(IBookJpaRepository bookRepository) {
         this.bookRepository = bookRepository;
+    }
+
+    @Override
+    public List<Book> findAllBooks() {
+        return bookRepository.findAll().stream().map(BookEntity::toDomainModel).collect(Collectors.toList());
     }
 
     @Override

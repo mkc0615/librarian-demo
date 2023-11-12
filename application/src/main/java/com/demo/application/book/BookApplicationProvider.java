@@ -18,6 +18,11 @@ public class BookApplicationProvider {
         this.bookProvider = bookProvider;
     }
 
+    public List<BookModel> getAllBooks() {
+        return bookProvider.findAllBooks().stream().map(BookModel::from
+        ).collect(Collectors.toList());
+    }
+
     public BookModel getBookByTitle(String title) {
         return BookModel.from(bookProvider.findBookByTitle(title));
     }

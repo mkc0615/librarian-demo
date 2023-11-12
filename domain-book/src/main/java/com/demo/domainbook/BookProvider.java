@@ -9,6 +9,9 @@ public class BookProvider {
         this.bookRepository = bookRepository;
     }
 
+    public List<Book> findAllBooks() {
+        return bookRepository.findAllBooks();
+    }
     public Book findBookByTitle(String title) {
         return bookRepository.findBookByTitle(title);
     }
