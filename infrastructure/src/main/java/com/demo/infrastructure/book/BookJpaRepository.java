@@ -48,4 +48,9 @@ public class BookJpaRepository implements BookRepository {
     public Book findById(Long userId) {
         return bookRepository.findById(userId);
     }
+
+    @Override
+    public List<Book> findAllBooksByIds(List<Long> bookIds) {
+        return bookRepository.findBooksByIdIn(bookIds);
+    }
 }

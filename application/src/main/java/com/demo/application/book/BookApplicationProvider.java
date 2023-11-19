@@ -31,13 +31,6 @@ public class BookApplicationProvider {
         return BookModel.from(bookProvider.findBookByAuthor(author));
     }
 
-//    public List<BookModel> getBooksByKeyword(String keyword) {
-//        return bookProvider.findBookByKeyword(keyword)
-//                .stream()
-//                .map( BookModel::from)
-//                .collect(Collectors.toList());
-//    }
-
     public BookModel getBook(String title, String author){
         return BookModel.from(bookProvider.findBook(title, author));
     }

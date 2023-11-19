@@ -26,21 +26,21 @@ public class BookController {
 
     @GetMapping("/title/{title}")
     public BookModel getBookByTitle(
-        @PathVariable String title
+            @PathVariable String title
     ) {
         return bookApplicationProvider.getBookByTitle(title);
     }
 
     @GetMapping("/author/{author}")
     public BookModel getBookByAuthor(
-        @PathVariable String author
+            @PathVariable String author
     ) {
         return bookApplicationProvider.getBookByAuthor(author);
     }
 
     @PostMapping
     public void register(
-        @RequestBody BookParam bookParam
+            @RequestBody BookParam bookParam
     ) {
         bookApplicationService.registerBook(bookParam.getTitle(), bookParam.getAuthor());
     }

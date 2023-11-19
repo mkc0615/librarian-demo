@@ -10,4 +10,6 @@ public interface IBookJpaRepository extends JpaRepository<BookEntity, String> {
     Book findBookByTitleAndAuthor(String title, String author);
     Book findBookByTitle(String title);
     Book findBookByAuthor(String author);
+
+    List<Book> findBooksByIdIn(List<Long> bookIds);
 }
