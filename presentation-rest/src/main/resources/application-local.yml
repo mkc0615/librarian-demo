@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: library
+  profiles:
+    active: local
+    include:
+      - app
+      - user
+      - book
+      - infra
+  mvc:
+    path-match:
+      matching-strategy: ant_path_matcher
+
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
