@@ -8,9 +8,9 @@ spring:
       - user
       - book
       - infra
-  mvc:
-    path-match:
-      matching-strategy: ant_path_matcher
+mvc:
+  path-match:
+    matching-strategy: ant_path_matcher
 
 server:
   port: 8080
