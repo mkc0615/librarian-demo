@@ -11,6 +11,8 @@ public class Book {
     private BookStatus status;
     private LocalDateTime registeredAt;
 
+    private LocalDateTime deletedAt = null;
+
     private Book(String title, String author) {
         this.title = title;
         this.author = author;
@@ -24,6 +26,10 @@ public class Book {
 
     public Book searched() {
         return new Book(title, author);
+    }
+
+    public void remove() {
+        this.deletedAt = LocalDateTime.now();
     }
 
     public Book copy(String name, String author) {

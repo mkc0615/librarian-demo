@@ -4,6 +4,7 @@ import com.demo.application.book.BookApplicationProvider;
 import com.demo.application.book.BookApplicationService;
 import com.demo.application.book.model.BookModel;
 import com.demo.presentationrest.controller.book.model.BookParam;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,22 +27,30 @@ public class BookController {
 
     @GetMapping("/title/{title}")
     public BookModel getBookByTitle(
-            @PathVariable String title
+        @PathVariable String title
     ) {
         return bookApplicationProvider.getBookByTitle(title);
     }
 
     @GetMapping("/author/{author}")
     public BookModel getBookByAuthor(
-            @PathVariable String author
+        @PathVariable String author
     ) {
         return bookApplicationProvider.getBookByAuthor(author);
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public void register(
-            @RequestBody BookParam bookParam
+        @RequestBody BookParam bookParam
     ) {
         bookApplicationService.registerBook(bookParam.getTitle(), bookParam.getAuthor());
+    }
+
+    @DeleteMapping
+    public void remove(
+        @PathVariable long bookId
+    ) {
+        bookApplicationService.removeBook(bookId);
     }
 }

@@ -12,8 +12,10 @@ public class BookService {
 
     public void register(String title, String author) {
         Book book = bookRepository.findBook(title, author);
-        if(book == null) {
+        if (book == null) {
             book = Book.create(title, author);
+        } else {
+            throw new IllegalArgumentException("이미 존재하는 책입니다");
         }
         bookRepository.save(book);
     }
@@ -24,5 +26,11 @@ public class BookService {
 
     public void returned(){
         // TODO: to be implemented
+    }
+
+    public void remove(long bookId) {
+        Book book = bookRepository.findById(bookId);
+        book.remove();
+        bookRepository.save(book);
     }
 }

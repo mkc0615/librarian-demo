@@ -3,7 +3,6 @@ package com.demo.presentationrest.controller.checkout;
 import com.demo.application.checkout.CheckoutApplicationProvider;
 import com.demo.application.checkout.CheckoutApplicationService;
 import com.demo.application.checkout.model.CheckoutModel;
-import com.demo.domaincheckout.Checkout;
 import com.demo.presentationrest.controller.checkout.model.CheckoutForm;
 import org.springframework.web.bind.annotation.*;
 

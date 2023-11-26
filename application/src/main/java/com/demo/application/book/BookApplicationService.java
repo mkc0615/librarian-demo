@@ -17,4 +17,8 @@ public class BookApplicationService {
     public void registerBook(String title, String author){
         bookService.register(title, author);
     }
+
+    public void removeBook(long bookId) {
+        bookService.remove(bookId);
+    }
 }
