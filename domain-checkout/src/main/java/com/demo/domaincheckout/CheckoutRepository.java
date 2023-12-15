@@ -8,4 +8,6 @@ public interface CheckoutRepository {
     Checkout save(Checkout checkout);
 
     List<Checkout> findAllByUserId(Long userId);
+
+    Checkout findByBookIdAndUserId(Long bookId, Long userId);
 }

@@ -20,13 +20,7 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public void checkout(){
-        // TODO: to be implemented
-    }
 
-    public void returned(){
-        // TODO: to be implemented
-    }
 
     public void remove(long bookId) {
         Book book = bookRepository.findById(bookId);

@@ -45,4 +45,9 @@ public class Checkout {
     public LocalDateTime getReturnDate() {
         return returnDate;
     }
+
+    public Checkout returnCheckout() {
+        this.returnDate = LocalDateTime.now();
+        return this;
+    }
 }

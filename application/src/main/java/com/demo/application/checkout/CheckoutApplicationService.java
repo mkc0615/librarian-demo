@@ -20,10 +20,8 @@ public class CheckoutApplicationService {
     }
 
     public void checkoutBook(Long bookId, Long userId) {
-
-
-
-        checkoutService.checkoutBook(bookId, userId);
+        // TODO: validate
+        checkoutService.checkout(bookId, userId);
     }
 
     public void validateUser(Long userId) {

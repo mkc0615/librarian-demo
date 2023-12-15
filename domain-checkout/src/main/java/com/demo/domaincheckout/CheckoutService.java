@@ -7,7 +7,14 @@ public class CheckoutService {
         this.checkoutRepository = checkoutRepository;
     }
 
-    public void checkoutBook(Long bookId,Long userId) {
+    public void checkout(Long bookId, Long userId) {
+        // TODO: validation here
         checkoutRepository.save(Checkout.create(bookId, userId));
+    }
+
+    public void returnCheckout(Long bookId, Long userId) {
+        Checkout checkout = checkoutRepository.findByBookIdAndUserId(bookId, userId);
+        checkout.returnCheckout();
+        checkoutRepository.save(checkout);
     }
 }
