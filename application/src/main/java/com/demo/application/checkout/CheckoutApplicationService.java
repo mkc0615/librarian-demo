@@ -21,6 +21,9 @@ public class CheckoutApplicationService {
 
     public void checkoutBook(Long bookId, Long userId) {
         // TODO: validate
+        // is the book checkout able?
+        // is user book limit reached?
+
         checkoutService.checkout(bookId, userId);
     }
 
