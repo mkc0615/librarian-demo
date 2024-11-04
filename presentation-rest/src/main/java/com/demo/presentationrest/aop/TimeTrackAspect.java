@@ -14,7 +14,7 @@ public class TimeTrackAspect {
     private void timeTrackPointCut() {
     }
 
-    @Around("timeTrackPointCut")
+    // @Around("timeTrackPointCut")
     public Object timeTrack(ProceedingJoinPoint joinPoint) throws Throwable {
 
         StopWatch stopWatch = new StopWatch();

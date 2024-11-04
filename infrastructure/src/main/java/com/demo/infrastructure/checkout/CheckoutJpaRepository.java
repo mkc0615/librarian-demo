@@ -25,4 +25,9 @@ public class CheckoutJpaRepository implements CheckoutRepository {
     public List<Checkout> findAllByUserId(Long userId) {
         return checkoutRepository.findAllByUserId(userId);
     }
+
+    @Override
+    public Checkout findByBookIdAndUserId(Long bookId, Long userId) {
+        return null;
+    }
 }

@@ -2,7 +2,6 @@ package com.demo.infrastructure.user;
 
 import com.demo.domainuser.User;
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
 import java.time.LocalDateTime;
 

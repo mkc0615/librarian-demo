@@ -20,8 +20,6 @@ public class BookService {
         bookRepository.save(book);
     }
 
-
-
     public void remove(long bookId) {
         Book book = bookRepository.findById(bookId);
         book.remove();
